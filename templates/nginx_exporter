@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eux -o pipefail
+
+# pull the image before so we dont first remove the container and then pull
+docker pull fish/nginx-exporter:"{{ nginx_exporter_version }}"
+
+docker rm -f -v nginx_exporter || :
+
+docker run --rm --name=nginx_exporter \
+	-p 9113:"{{ nginx_exporter_server_port }}" \
+   fish/nginx-exporter:"{{ nginx_exporter_version }}" -nginx.scrape_uri='{{ nginx_server_uri }}'

@@ -1,0 +1,75 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: Ansible Role Docker Nginx Node Exporter
+
+# License of this project
+license: "MIT"
+
+# Canonical GitHub repo
+github_repo: clouddrove/ansible-role-docker-nginx-node-exporter
+
+# Badges to display
+badges:
+  - name: "Ansible"
+    image: "https://img.shields.io/badge/Ansible-2.8-green?style=flat&logo=ansible"
+    url: "https://www.ansible.com"
+  - name: "Licence"
+    image: "https://img.shields.io/badge/License-MIT-blue.svg"
+    url: "LICENSE.md"
+  - name: "Distribution"
+    image: "https://img.shields.io/badge/ubuntu-16.x-orange?style=flat&logo=ubuntu"
+    url: "https://ubuntu.com/"
+  - name: "Distribution"
+    image: "https://img.shields.io/badge/ubuntu-18.x-orange?style=flat&logo=ubuntu"
+    url: "https://ubuntu.com/"
+
+# Prerequesties to display
+# yamllint disable
+prerequesties:
+  - name: "Ansible2.8"
+    url: "https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html"
+  - name: "Python"
+    url: "https://www.python.org/downloads"
+  - name: "Docker"
+    url: "https://docs.docker.com/install/linux/docker-ce/ubuntu"
+  - name: "Nginx"
+    url: "https://github.com/clouddrove/ansible-role-docker-nginx"
+# yamllint enable
+# What Includes to display
+what_includes:
+  - name: "nginx-node-exporter"
+
+
+#  description of this project
+description: |-
+  This ansible role is used to setup Nginx node exporter with docker.
+
+# How to use this project
+usage: |-
+  ```yaml
+  - hosts: localhost
+    remote_user: ubuntu
+    become: true
+    roles:
+      - clouddrove.ansible_role_docker_nginx_node_exporter
+  ```
+# Variables use in the project
+variables: |-
+  ```yaml
+    nginx_exporter_server_port: 9113
+    nginx_exporter_server_bind: 0.0.0.0
+    nginx_exporter_server_password: false
+    nginx_exporter_version: v0.1.1
+    nginx_server_uri: "http://{{ PublicIp }}/nginx_status"
+  ```
+
+# How to install project
+installation: |-
+  ```console
+    $ ansible-galaxy install clouddrove.ansible_role_docker_nginx_node_exporter
+  ```

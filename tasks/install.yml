@@ -1,0 +1,32 @@
+---
+
+- name: copy nginx exporter script
+  template:
+    src: "nginx_exporter"
+    dest: /usr/local/bin/nginx_exporter
+    mode: 0755
+    owner: root
+    group: root
+
+- name: copy nginx exporter script
+  template:
+    src: "nginx_exporter.service"
+    dest: /etc/systemd/system/nginx_exporter.service
+    mode: 0644
+    owner: root
+    group: root
+
+- name: restart nginx exporter service is restarted
+  service:
+    name: nginx_exporter
+    state: restarted
+  changed_when: false
+
+- name: wait for nginx exporter to become ready
+  wait_for:
+    host: "{{ nginx_exporter_server_bind }}"
+    port: "{{ nginx_exporter_server_port }}"
+    state: started
+    delay: 5
+    connect_timeout: 15
+    timeout: 300

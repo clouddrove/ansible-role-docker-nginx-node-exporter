@@ -1,0 +1,9 @@
+[Unit]
+Description=nginx exporter Server
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStart=/usr/local/bin/nginx_exporter
+[Install]
+WantedBy=multi-user.target
