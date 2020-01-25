@@ -98,7 +98,7 @@ Followiing things includes in this role:
   nginx_exporter_server_bind: 0.0.0.0
   nginx_exporter_server_password: false
   nginx_exporter_version: v0.1.1
-  nginx_server_uri: "http://{{ PublicIp }}/nginx_status"
+  nginx_server_uri: "http://{{ PrivateIp }}/nginx_status"
 ```
 
 
