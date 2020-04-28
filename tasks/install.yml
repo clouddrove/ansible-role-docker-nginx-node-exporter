@@ -20,6 +20,7 @@
   service:
     name: nginx_exporter
     state: restarted
+    enabled: true
   changed_when: false
 
 - name: wait for nginx exporter to become ready
