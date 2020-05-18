@@ -67,7 +67,7 @@ This module has a few dependencies:
 
 ## What Includes
 
-Followiing things includes in this role:
+Following things includes in this role:
 
 - nginx-node-exporter
 
