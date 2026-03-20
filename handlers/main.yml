@@ -1,20 +1,20 @@
 ---
 # handlers for ansible-role-docker-nginx_exporter
 
-- name: restart nginx_exporter
-  service:
-    name: nginx_exporter
+- name: Restart nginx_exporter
+  ansible.builtin.service:
+    name: Nginx_exporter
     state: restarted
     enabled: true
 
-- name: start nginx_exporter
-  service:
-    name: nginx_exporter
+- name: Start nginx_exporter
+  ansible.builtin.service:
+    name: Nginx_exporter
     state: started
     enabled: true
 
-- name: reload nginx_exporter
-  service:
-    name: nginx_exporter
+- name: Reload nginx_exporter
+  ansible.builtin.service:
+    name: Nginx_exporter
     state: reloaded
     enabled: true
